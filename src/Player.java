@@ -56,51 +56,51 @@ public class Player {
         System.out.println("Player " + this.name + ", it's your turn.");
         System.out.println("Here is your opponent " + opponent.getName() + "'s hidden board");
         opponentBoard.printHiddenBoard(opponent, opponentBoard);
-        System.out.print("Enter coordinates between 0-9 (x, y), seperated with space: ");
-        String input = this.scanner.nextLine();
 
-        String[] parts = input.trim().split("\\s+");
+        while (true) { // Loop until valid input is received
+            System.out.print("Enter coordinates between 0-9 (x, y), separated with a space: ");
+            String input = this.scanner.nextLine();
+            String[] parts = input.trim().split("\\s+");
 
-        if (parts.length == 2) {
-            int targetY;
-            int targetX;
-            try {
-                targetX = Integer.parseInt(parts[0]);
-                targetY = Integer.parseInt(parts[1]);
+            if (parts.length == 2) {
+                try {
+                    int targetX = Integer.parseInt(parts[0]);
+                    int targetY = Integer.parseInt(parts[1]);
 
-                if (targetX < 0 || targetX >= 10 || targetY < 0 || targetY >= 10) {
-                    System.out.println("Invalid coordinates. Please enter numbers between 0 and 9.");
-                    this.takeTurn(opponent, opponentBoard);
-                    return;
+                    if (targetX >= 0 && targetX < 10 && targetY >= 0 && targetY < 10) {
+                        ShotResult shotResult = this.fireShot(targetY, targetX, opponentBoard);
+                        switch (shotResult) {
+                            case HIT:
+                                System.out.println("You hit " + opponent.getName() + "'s ship! Here is " + opponent.getName() + "'s updated board.");
+                                opponentBoard.printHiddenBoard(opponent, opponentBoard);
+                                return;
+                            case MISS:
+                                System.out.println("Your shot missed. Here is " + opponent.getName() + "'s updated board.");
+                                opponentBoard.printHiddenBoard(opponent, opponentBoard);
+                                return;
+                            case REPEAT_SHOT:
+                                System.out.println("You have already targeted this square. Please choose another square.");
+                                break;
+                            case SUNK:
+                                System.out.println("You sunk " + opponent.getName() + "'s ship! Here is " + opponent.getName() + "'s updated board.");
+                                opponentBoard.printHiddenBoard(opponent, opponentBoard);
+                                return;
+                            default:
+                                System.out.println("An unexpected error occurred. Please try again.");
+                                break;
+                        }
+                    } else {
+                        System.out.println("Invalid coordinates. Please enter numbers between 0 and 9.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter numeric coordinates only.");
                 }
-            } catch (NumberFormatException e) {
-                throw new RuntimeException(e);
-            }
-
-
-            ShotResult shotResult = this.fireShot(targetY, targetX, opponentBoard);
-
-            switch (shotResult) {
-                case HIT:
-                    System.out.println("You hit " + opponent.getName() + "'s ship! Here is " + opponent.getName() + "'s updated board.");
-                    opponentBoard.printHiddenBoard(opponent, opponentBoard);
-                    break;
-                case MISS:
-                    System.out.println("Your shot missed. Here is " + opponent.getName() + "'s updated board.");
-                    opponentBoard.printHiddenBoard(opponent, opponentBoard);
-                    break;
-                case REPEAT_SHOT:
-                    System.out.println("You have already targeted this square. Please choose another square next turn.");
-                    break;
-                case SUNK:
-                    System.out.println("You sunk " + opponent.getName() + "'s ship! Here is " + opponent.getName() + "'s updated board.");
-                    opponentBoard.printHiddenBoard(opponent, opponentBoard);
-                    break;
-                default:
-                    System.out.println("An unexpected error occurred. Please try again.");
+            } else {
+                System.out.println("Incorrect number of coordinates. Please enter exactly two numbers separated by a space.");
             }
         }
     }
+
     public static enum ShotResult {
         HIT,
         MISS,
