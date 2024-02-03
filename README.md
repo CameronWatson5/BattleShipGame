@@ -1,4 +1,4 @@
-# Retro Style Console Java BattleShip Game (Text only, no graphics)
+# Retro Style Console Java BattleShip Game (Text Only, No Graphics)
 ## Requirements:
 Java
 ## Description:
