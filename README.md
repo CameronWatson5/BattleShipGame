@@ -8,7 +8,7 @@ This is a retro style battleship game made using only Java, it only uses text an
 Download the file and unzip it.
 ### Step 2
 Begin the game by compiling the java files inside the src folder. This can only be done if you have Java installed on your system.
-This is done by changing the directory to the src folder inside of the BattleShipGame folder and then running the command: javac *.java
+This is done by changing the directory to the src folder inside of the BattleShipGame folder and then running the command: javac *.java.
 Then run the Main class by using the command: java Main
 
 ![image](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/cc02663b-9aee-4fa2-952b-e5a530b97a35)
