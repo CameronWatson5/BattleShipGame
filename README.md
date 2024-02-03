@@ -22,8 +22,6 @@ Firstly, each player should add their name to the game and then press the enter 
 After each player has added their name, the boards will be randomly generated and the ships will be placed.
 Player 1 willl then take their turn by entering a coordinate between 0 and 9 for x and 0 and 9 for y. NOTE: this should be seperated by a space!
 
-![Battleship2](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/9f44323a-3439-49b9-9fb6-f23208dea7ad)
-
 Player 1 and Player 2 will alternate turns until one player has lost all of their ships.
 
 ![Battleship3](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/9f3afaeb-5b0a-4379-97f2-68a63c1845ba)
