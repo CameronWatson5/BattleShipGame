@@ -5,15 +5,13 @@ Java
 This is a retro style battleship game made using only Java, it only uses text and has no graphics for a retro style feel. This is a 2 player game. 5 ships are randomly placed on the board for each player, 3 small ships, 2 medium ships, and 1 large ship. This game recieves player input for the x and y positions of the square that will be attacked. This is in the form of 0 - 9 integers. A player wins the game by destroying all of their opponent's ships.
 ## Set up:
 ### Step 1
+Download the file and unzip it.
+### Step 2
 Begin the game by compiling the java files inside the src folder. This can only be done if you have Java installed on your system.
 This is done by changing the directory to the src folder inside of the BattleShipGame folder and then running the command: javac *.java
-
-![Battleship5](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/8f3b495a-e2b1-4f3c-b72c-5f100360af63)
-
-### Step 2
 Then run the Main class by using the command: java Main
 
-![Battleship6](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/da52037b-3404-4f01-9f3b-c6990c991b48)
+![image](https://github.com/CameronWatson5/BattleShipGame/assets/145788750/cc02663b-9aee-4fa2-952b-e5a530b97a35)
 
 This will begin the game!
 ## Gameplay:
